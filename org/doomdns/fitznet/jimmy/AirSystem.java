@@ -4,6 +4,8 @@ public class AirSystem {
 	
 String modelName;
 double unitPrice;
+int Btu;
+
 
 public AirSystem() {
 	

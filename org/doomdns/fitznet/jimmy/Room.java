@@ -7,10 +7,16 @@ public class Room {
 double length;
 double width;
 
+//Argument Constructor
 public Room(double length, double width) {
 	this.length = length;
 	this.width = width;
 }
+//No Arg
+public Room() {
+	
+}
+
 //Setters
 void setLength(double length) {this.length = length;}
 void setWidth(double width) {this.width = width;}

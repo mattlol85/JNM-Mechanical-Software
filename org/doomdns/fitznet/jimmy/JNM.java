@@ -4,21 +4,105 @@ import java.util.*;
 //import java.io.*;
 
 public class JNM {
-static Scanner in = new Scanner(System.in);
+	static Scanner in = new Scanner(System.in);
 
 	public static void main(String[] args) {
-	System.out.println("JNM_Mechanical BTU Measurement System.");
-	System.out.println("Version 1.0.0");
-	System.out.println();
-	
-	System.out.println("Enter Length.");
-	double length = in.nextDouble();
-	
-	System.out.println("Enter Width.");
-	double width = in.nextDouble();
-	
-	Room room = new Room(length,width);
-	System.out.println(room.getSqFoot() + " Sq.Ft");
+		char choice;
+		boolean not_done = true; // Control Loop Flag
+		ArrayList<Home> homeList = new ArrayList<>();
+
+		System.out.println("JNM_Mechanical BTU Measurement System.");
+		System.out.println("Version 1.0.0");
+		System.out.println();
+		do {
+			menu();
+			choice = in.next().charAt(0);
+			switch (choice) {
+			case 'q':
+			case 'Q':
+				not_done = false;
+				break;
+			case 'c':
+			case 'C':
+				quickCalc();
+				System.out.println("Quick Calculator");
+				break;
+			case 'h':
+			case 'H':
+				addHome();
+				System.out.println("Who's House is this for?\n");
+				System.out.println("Enter Client First Name.");
+				//TODO Add funtionality 
+				System.out.println("Enter Clients Last Name.");
+				//TODO
+				System.out.println("Enter Number of Rooms.");
+				// for(int i = 0; i < numberRooms;)
+				//
+			default:
+				// outFile.println("|********************************************|");
+				// outFile.println("Error: " + choice + " is an invalid selection - try again");
+				// outFile.println("|********************************************|");
+				// outFile.println("");
+				// outFile.flush();
+				System.out.println("|********************************************|");
+				System.out.println("Error: " + choice + " is an invalid selection -  try again");
+				System.out.println("|********************************************|");
+				System.out.println("");
+				break;
+			}
+
+		} while (not_done);
+
+		System.out.println("Enter Length.");
+		double length = in.nextDouble();
+
+		System.out.println("Enter Width.");
+		double width = in.nextDouble();
+
+		Room room = new Room(length, width);
+		System.out.println(room.getSqFoot() + " Sq.Ft");
+	}
+	/*
+	 * QuickCalc() is a quick calculator for quickly
+	 * estimating the BTU required to cool the room 
+	 */
+	private static void quickCalc() {
+		
+		System.out.println("Enter Length.");
+		double length = in.nextDouble();
+
+		System.out.println("Enter Width.");
+		double width = in.nextDouble();
+
+		Room room = new Room(length, width);
+		System.out.println(room.getSqFoot() + " Sq.Ft");
+	}
+
+	private static void addHome() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void readHomeDatabase() {
+		
+	}
+	private static void readAirSystemDatabase() {
+		//TODO Add function
+	}
+
+	private static void menu() {
+		System.out.println();
+		System.out.println("Select one of the following transactions:");
+		System.out.println("\t****************************");
+		System.out.println("\t    List of Choices         ");
+		System.out.println("\t****************************");
+		System.out.println("\t     C -- Quick Calculator");
+		System.out.println("\t     H -- Add Home");
+		System.out.println("\t     ? -- New Function");
+		System.out.println("\t     ? -- New Function");
+		System.out.println("\t     ? -- New Function");
+		System.out.println();
+		System.out.print("\tEnter your selection: \n");
+		System.out.println("");
 	}
 
 }
