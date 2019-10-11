@@ -1,3 +1,3 @@
 #! /bin/sh
-
-javac -d classes org/doomdns/fitznet/jimmy/*.java
+javac org/doomdns/fitznet/jimmy/*.java
+java org.doomdns.fitznet.jimmy.JNM

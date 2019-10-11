@@ -8,53 +8,57 @@ import java.util.ArrayList;
  */
 public class Home {
 	ArrayList<Room> rooms;
-	String ownerFirst;
-	String ownerLast;
+	Person person;
+	Address address;
 
 	// No Arg Constructor
 	public Home() {
-	this.ownerFirst = "First Name";
-	this.ownerLast = "Last Name";
+	this.person = new Person();
+	address = new Address();
 	
 	}
 
 	// Copy Constructor
 	public Home(Home copyHome) {
-		this.ownerFirst = copyHome.getOwnerFirst();
-		this.ownerLast = copyHome.getOwnerLast();
 		this.rooms = copyHome.getRooms();
+		this.address = copyHome.getAddress();
+		this.person = copyHome.getPerson();
 	}
 
-	public Home(String firstName, String lastName) {
-		this.ownerFirst = firstName;
-		this.ownerLast = lastName;
+	//Argument Constructor
+	public Home(Person person,Address address) {
+		this.person = person;
+		this.address = address;
 	}
+
+	/*****************************/
 
 	// Setters
-	void setOwnerFirst(String firstName) {
-		this.ownerFirst = firstName;
-	}
-
-	void setOwnerLast(String lastName) {
-		this.ownerLast = lastName;
-	}
 
 	void setRooms(ArrayList<Room> rooms) {
 		this.rooms = rooms;
 	}
+	void setAddress(Address address){
+		this.address = address;
+	}
+	void setPerson(Person person){
+		this.person = person;
+	}
+	/*****************************/
 
 	// Getters
-	String getOwnerFirst() {
-		return ownerFirst;
+	Person getPerson(){
+		return person;
 	}
-
-	String getOwnerLast() {
-		return ownerLast;
-	}
-
 	ArrayList<Room> getRooms() {
 		return rooms;
 	}
+
+	Address getAddress(){
+		return address;
+	}
+
+	/*****************************/
 
 	// Methods
 }

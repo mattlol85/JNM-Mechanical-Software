@@ -31,11 +31,6 @@ public class JNM {
 				addHome();
 				break;
 			default:
-				// outFile.println("|********************************************|");
-				// outFile.println("Error: " + choice + " is an invalid selection - try again");
-				// outFile.println("|********************************************|");
-				// outFile.println("");
-				// outFile.flush();
 				System.out.println("|********************************************|");
 				System.out.println("Error: " + choice + " is an invalid selection -  try again");
 				System.out.println("|********************************************|");
@@ -45,14 +40,8 @@ public class JNM {
 
 		} while (not_done);
 
-		System.out.println("Enter Length.");
-		double length = in.nextDouble();
-
-		System.out.println("Enter Width.");
-		double width = in.nextDouble();
-
-		Room room = new Room(length, width);
-		System.out.println(room.getSqFoot() + " Sq.Ft");
+		System.out.println("Exiting.");
+		System.exit(0);
 	}
 	/*
 	 * QuickCalc() is a quick calculator for quickly
@@ -69,18 +58,18 @@ public class JNM {
 		Room room = new Room(length, width);
 		System.out.println(room.getSqFoot() + " Sq.Ft");
 	}
-
+   /*
+	*addHome() adds a new home to the database.
+	*
+	*/
 	private static void addHome() {
-		// TODO Auto-generated method stub
+		// TODO Account for new person class
 		Scanner in = new Scanner(System.in);
 		Home newHome = new Home();
 		System.out.println("Who's House is this for?\n");
 		System.out.println("Enter Client First Name.");
-		newHome.setOwnerFirst(in.nextLine());
+		//
 		System.out.println("Enter Clients Last Name.");
-		//TODO
-		System.out.println("Enter Number of Rooms.");
-		// for(int i = 0; i < numberRooms;)
 		//
 		in.close();
 	}
