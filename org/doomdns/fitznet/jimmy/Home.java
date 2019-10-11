@@ -11,4 +11,13 @@ public class Home {
 	String ownerFirst;
 	String ownerLast;
 	
+	public Home(){
+
+	}
+
+	//No Arg Constructor
+	public Home(String firstName, String lastName){
+		this.ownerFirst = firstName;
+		this.ownerLast = lastName;
+	}
 }

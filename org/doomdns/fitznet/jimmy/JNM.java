@@ -25,7 +25,6 @@ public class JNM {
 			case 'c':
 			case 'C':
 				quickCalc();
-				System.out.println("Quick Calculator");
 				break;
 			case 'h':
 			case 'H':
@@ -38,6 +37,7 @@ public class JNM {
 				System.out.println("Enter Number of Rooms.");
 				// for(int i = 0; i < numberRooms;)
 				//
+				break;
 			default:
 				// outFile.println("|********************************************|");
 				// outFile.println("Error: " + choice + " is an invalid selection - try again");
@@ -80,13 +80,16 @@ public class JNM {
 
 	private static void addHome() {
 		// TODO Auto-generated method stub
+		Home newHome;
+		
 		
 	}
 	private static void readHomeDatabase() {
-		
+		System.out.println("Read & load List of homes.");
 	}
 	private static void readAirSystemDatabase() {
 		//TODO Add function
+		System.out.println("Read & load AC Unit Database");
 	}
 
 	private static void menu() {
@@ -97,11 +100,10 @@ public class JNM {
 		System.out.println("\t****************************");
 		System.out.println("\t     C -- Quick Calculator");
 		System.out.println("\t     H -- Add Home");
-		System.out.println("\t     ? -- New Function");
-		System.out.println("\t     ? -- New Function");
-		System.out.println("\t     ? -- New Function");
-		System.out.println();
-		System.out.print("\tEnter your selection: \n");
+		System.out.println("\t     A -- Add New Air System");
+		System.out.println("\t     E -- Edit/Change Air System");
+		System.out.println("\t     Q -- Quit Application\n");
+		System.out.print("\tEnter your selection:\n");
 		System.out.println("");
 	}
 
