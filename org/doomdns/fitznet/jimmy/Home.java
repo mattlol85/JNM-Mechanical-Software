@@ -10,14 +10,51 @@ public class Home {
 	ArrayList<Room> rooms;
 	String ownerFirst;
 	String ownerLast;
-	
-	public Home(){
 
+	// No Arg Constructor
+	public Home() {
+	this.ownerFirst = "First Name";
+	this.ownerLast = "Last Name";
+	
 	}
 
-	//No Arg Constructor
-	public Home(String firstName, String lastName){
+	// Copy Constructor
+	public Home(Home copyHome) {
+		this.ownerFirst = copyHome.getOwnerFirst();
+		this.ownerLast = copyHome.getOwnerLast();
+		this.rooms = copyHome.getRooms();
+	}
+
+	public Home(String firstName, String lastName) {
 		this.ownerFirst = firstName;
 		this.ownerLast = lastName;
 	}
+
+	// Setters
+	void setOwnerFirst(String firstName) {
+		this.ownerFirst = firstName;
+	}
+
+	void setOwnerLast(String lastName) {
+		this.ownerLast = lastName;
+	}
+
+	void setRooms(ArrayList<Room> rooms) {
+		this.rooms = rooms;
+	}
+
+	// Getters
+	String getOwnerFirst() {
+		return ownerFirst;
+	}
+
+	String getOwnerLast() {
+		return ownerLast;
+	}
+
+	ArrayList<Room> getRooms() {
+		return rooms;
+	}
+
+	// Methods
 }

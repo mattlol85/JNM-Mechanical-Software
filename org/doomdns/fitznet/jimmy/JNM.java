@@ -12,8 +12,8 @@ public class JNM {
 		ArrayList<Home> homeList = new ArrayList<>();
 
 		System.out.println("JNM_Mechanical BTU Measurement System.");
-		System.out.println("Version 1.0.0");
-		System.out.println();
+		System.out.println("Version 1.0.0\n");
+		
 		do {
 			menu();
 			choice = in.next().charAt(0);
@@ -29,14 +29,6 @@ public class JNM {
 			case 'h':
 			case 'H':
 				addHome();
-				System.out.println("Who's House is this for?\n");
-				System.out.println("Enter Client First Name.");
-				//TODO Add funtionality 
-				System.out.println("Enter Clients Last Name.");
-				//TODO
-				System.out.println("Enter Number of Rooms.");
-				// for(int i = 0; i < numberRooms;)
-				//
 				break;
 			default:
 				// outFile.println("|********************************************|");
@@ -80,15 +72,22 @@ public class JNM {
 
 	private static void addHome() {
 		// TODO Auto-generated method stub
-		Home newHome;
-		
-		
+		Scanner in = new Scanner(System.in);
+		Home newHome = new Home();
+		System.out.println("Who's House is this for?\n");
+		System.out.println("Enter Client First Name.");
+		newHome.setOwnerFirst(in.nextLine());
+		System.out.println("Enter Clients Last Name.");
+		//TODO
+		System.out.println("Enter Number of Rooms.");
+		// for(int i = 0; i < numberRooms;)
+		//
+		in.close();
 	}
 	private static void readHomeDatabase() {
 		System.out.println("Read & load List of homes.");
 	}
 	private static void readAirSystemDatabase() {
-		//TODO Add function
 		System.out.println("Read & load AC Unit Database");
 	}
 
