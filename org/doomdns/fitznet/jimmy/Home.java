@@ -61,4 +61,13 @@ public class Home {
 	/*****************************/
 
 	// Methods
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "First Name: " + person.getFirstname() +
+				"Last Name: " + person.getLastName() +
+				"Email Address : " + person.getEmail() +
+				"Address: " + address.getStreetAddress() + "," + address.getCity() + "," + address.getState() +
+				"," + address.getZipCode();
+	}
 }
