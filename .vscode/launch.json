@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - DataTest",
+            "request": "launch",
+            "mainClass": "org.doomdns.fitznet.jimmy.DataTest",
+            "projectName": "JNM-Mechanical-Software"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"

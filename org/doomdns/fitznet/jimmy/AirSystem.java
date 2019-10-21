@@ -6,9 +6,11 @@ String modelName;
 double unitPrice;
 int Btu;
 
-
+//No Arg
 public AirSystem() {
-	
+	modelName = "";
+	unitPrice = 0.0;
+	Btu = 0;
 }
 
 //Getters

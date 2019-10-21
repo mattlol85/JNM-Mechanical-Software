@@ -1,34 +1,36 @@
 package org.doomdns.fitznet.jimmy;
 
-import java.io.File;
-import java.util.Scanner;
+import java.util.ArrayList;
+/*
+*This holds a master database of all the homes recorded
+*in JNM Software.
+*
+*
+*
+*/
+public class DatabaseManager {
 
-public class DatabaseManager{
-File airUnitList;
-File homeList;
+    ArrayList<Home> homes;
+    
+    // Argument constructor
+    public DatabaseManager(ArrayList<Home> homes) {
+        this.homes = homes;
+    }
 
-public DatabaseManager(){
-    this.airUnitList = new File("newAirUintList.txt");
-    this.homeList = new File("newHomeslist.txt");
-    //No clue why I did this, school got me messed up yo
-}
+    // Setters
 
-//Argument constructor
-public DatabaseManager(File airUnitList, File homeList){
-    this.airUnitList = airUnitList;
-    this.homeList = homeList;
-}
+    // Getters
 
-//Setters
+    // Methods
+    public void readAirSystemsIntoDatabase() {
 
-//Getters
+    }
 
-//Methods
-public void readAirSystemsIntoDatabase(){
+    public void readHomesListIntoDatabase() {
 
-}
+    }
 
-public void readHomesListIntoDatabase(){
+    public void getNumberOfHomes(){
 
-}
+    }
 }

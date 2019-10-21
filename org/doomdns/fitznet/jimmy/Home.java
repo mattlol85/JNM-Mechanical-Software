@@ -15,6 +15,7 @@ public class Home {
 	public Home() {
 	this.person = new Person();
 	address = new Address();
+	rooms = new ArrayList<>();
 	
 	}
 
@@ -26,9 +27,10 @@ public class Home {
 	}
 
 	//Argument Constructor
-	public Home(Person person,Address address) {
+	public Home(Person person,Address address, ArrayList<Room> rooms) {
 		this.person = person;
 		this.address = address;
+		this.rooms = rooms;
 	}
 
 	/*****************************/
@@ -63,11 +65,10 @@ public class Home {
 	// Methods
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "First Name: " + person.getFirstname() +
-				"Last Name: " + person.getLastName() +
-				"Email Address : " + person.getEmail() +
-				"Address: " + address.getStreetAddress() + "," + address.getCity() + "," + address.getState() +
+				"\nLast Name: " + person.getLastName() +
+				"\nEmail Address : " + person.getEmail() +
+				"\nAddress: " + address.getStreetAddress() + "," + address.getCity() + "," + address.getState() +
 				"," + address.getZipCode();
 	}
 }
