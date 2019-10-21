@@ -6,14 +6,27 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+/*
+					To Do List
+TODO Write objects in a binary file
+TODO Read and edit objects in the file
+TODO Clean Code and remove unused methods
+TODO Prepare for merge to master branch
+TODO Obtain basic running state of program
+TODO Idiot proof the inputs, make sure everything thats written cant be broken
+TODO Create and run Idiot-Proofing Test
 
+
+
+
+*/
 public class JNM {
 	public static void main(String[] args) throws Exception {
 		char choice;
 		boolean not_done = true; // Control Loop Flag
 		ArrayList<Home> homes = new ArrayList<>();
 		File testCaseFile = new File("testCases.txt");
-		//Scanner in = new Scanner(System.in);
+		// Scanner in = new Scanner(System.in);
 		Scanner in = new Scanner(testCaseFile);
 		DatabaseManager databaseManager = new DatabaseManager(homes);
 
@@ -81,6 +94,7 @@ public class JNM {
 	private static void addHome(ArrayList<Home> homes, Scanner in) {
 		homes.add(createNewHome(in));
 	}
+
 	/*
 	 * Loads the database to the file
 	 */
@@ -102,22 +116,22 @@ public class JNM {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-		try{
+		try {
 			Scanner dbReader = new Scanner(homeList);
 			String line;
 
-			while(dbReader.hasNext()){
+			while (dbReader.hasNext()) {
 				line = dbReader.nextLine();
 				String stringTokens[] = line.split(" ");
-				Person newPerson = new Person(stringTokens[0],stringTokens[1],stringTokens[2]);
-				Address newAddress = new Address(stringTokens[3],stringTokens[4],
-												stringTokens[5],stringTokens[6]);
+				Person newPerson = new Person(stringTokens[0], stringTokens[1], stringTokens[2]);
+				Address newAddress = new Address(stringTokens[3], stringTokens[4], stringTokens[5], stringTokens[6]);
 			}
-		}catch(FileNotFoundException e){
+		} catch (FileNotFoundException e) {
 			System.err.println("Error: File not found.");
 		}
 
 	}
+
 	/*
 	 * Writes the database to the file
 	 */
@@ -136,6 +150,7 @@ public class JNM {
 		}
 
 	}
+
 	// This just displays the main menu on the main loop
 	private static void menu() {
 		System.out.println();
@@ -159,7 +174,6 @@ public class JNM {
 		return sqFoot * 20;
 	}
 
-
 	static Person createNewPerson(Scanner in) {
 		System.out.println("Enter Client First Name.");
 		String firstName = in.next();
@@ -175,7 +189,7 @@ public class JNM {
 		return newPerson;
 	}
 
-	// Creates new room with prompts
+	// Creates new room object with prompts
 	static Room createNewRoom(Scanner in) {
 		Room newRoom;
 		System.out.println("Enter Length.");
@@ -188,7 +202,7 @@ public class JNM {
 		return newRoom;
 	}
 
-	// This method creates everything with the text for the user.
+	// This method creates a new Home object with prompts.
 	static Home createNewHome(Scanner in) {
 
 		System.out.println("How many rooms need to be cooled?");
@@ -205,6 +219,7 @@ public class JNM {
 		return newHome;
 	}
 
+	// Creates new address object, with prompts
 	static Address createNewAddress(Scanner in) {
 
 		System.out.println("Enter Street Name & Number.");
@@ -223,12 +238,12 @@ public class JNM {
 		return newAddress;
 	}
 
+	// Testing method to verify toString is working properly
 	static void testToString(Home testHome) {
 		System.out.println("Home.toString: \n" + testHome.toString());
 		System.out.println("Address.toString: " + testHome.getAddress().toString());
 		System.out.println("Person.toString: " + testHome.getPerson().toString());
 		for (int i = 0; i < testHome.getRooms().size(); i++)
 			System.out.println("Room #" + (i + 1) + " " + testHome.getRooms().get(i).toString());
-
 	}
 }
