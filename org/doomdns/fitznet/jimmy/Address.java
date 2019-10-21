@@ -1,6 +1,12 @@
 package org.doomdns.fitznet.jimmy;
 
-public class Address {
+import java.io.Serializable;
+
+public class Address implements Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = -2269313218023944144L;
     private String streetAddress;
     private String city;
     private String state;
@@ -98,7 +104,10 @@ public class Address {
     }
 
     public String toString() {
-        return streetAddress + ": " + city + ", " + state + " " + zipCode;
+        String str = String.format("%-20s%-10s%-10s%-5s",
+                                     streetAddress,
+                                     city,state,zipCode);
+        return str;
     }
 
     public Object clone() {

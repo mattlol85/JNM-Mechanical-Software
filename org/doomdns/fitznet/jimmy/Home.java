@@ -1,12 +1,17 @@
 package org.doomdns.fitznet.jimmy;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
 /* Matthew Fitzgerald 10/10/2019
  * 
  * Class Home - Defines a list of rooms in the home
  */
-public class Home {
+public class Home implements Serializable{
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -33894740830985938L;
 	ArrayList<Room> rooms;
 	Person person;
 	Address address;
@@ -65,10 +70,7 @@ public class Home {
 	// Methods
 	@Override
 	public String toString() {
-		return "First Name: " + person.getFirstname() +
-				"\nLast Name: " + person.getLastName() +
-				"\nEmail Address : " + person.getEmail() +
-				"\nAddress: " + address.getStreetAddress() + "," + address.getCity() + "," + address.getState() +
-				"," + address.getZipCode();
+		//TODO fix this, its all wrong bossman...
+		return person.toString() + address.toString();
 	}
 }
