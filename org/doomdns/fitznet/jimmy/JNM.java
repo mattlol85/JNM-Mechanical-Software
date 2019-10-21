@@ -100,54 +100,13 @@ public class JNM {
 	 */
 	private static void loadDatabases(DatabaseManager db) {
 		System.out.println("Loading Databse...");
-
-		// File airUnitData = new File("AirUnit.txt");
-
-		// First Load Up the Homes Database
-		File homeList = new File("homes.txt");
-
-		// If the files dont exist, make new ones
-		try { // TODO Remove or Redo
-			if (!homeList.exists()) {
-				homeList.createNewFile();
-			}
-		} catch (FileNotFoundException e) {
-			System.err.println("Error: File Not Found.");
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-		try {
-			Scanner dbReader = new Scanner(homeList);
-			String line;
-
-			while (dbReader.hasNext()) {
-				line = dbReader.nextLine();
-				String stringTokens[] = line.split(" ");
-				Person newPerson = new Person(stringTokens[0], stringTokens[1], stringTokens[2]);
-				Address newAddress = new Address(stringTokens[3], stringTokens[4], stringTokens[5], stringTokens[6]);
-			}
-		} catch (FileNotFoundException e) {
-			System.err.println("Error: File not found.");
-		}
-
+		
 	}
 
 	/*
 	 * Writes the database to the file
 	 */
 	static void writeDatabase(ArrayList<Home> homesDatabase) {
-		// Set the homes file
-		File homes = new File("homes.txt");
-		// Set up printWriter on the new file
-
-		try {
-			PrintWriter printer = new PrintWriter(homes);
-			for (int i = 0; i < homes.length(); i++) {
-
-			}
-		} catch (IOException e) {
-			System.err.println("IO Exception.");
-		}
 
 	}
 
