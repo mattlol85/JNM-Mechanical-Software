@@ -2,6 +2,10 @@ package org.doomdns.fitznet.jimmy;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -24,13 +28,17 @@ public class JNM {
 	public static void main(String[] args) throws Exception {
 		char choice;
 		boolean not_done = true; // Control Loop Flag
+		//Main home local database storage
 		ArrayList<Home> homes = new ArrayList<>();
+		//Test case file to quickly test
 		File testCaseFile = new File("testCases.txt");
+		//Scanner for human input
 		// Scanner in = new Scanner(System.in);
 		Scanner in = new Scanner(testCaseFile);
-		DatabaseManager databaseManager = new DatabaseManager(homes);
-
-		loadDatabases(databaseManager);
+		//Database Manager to load data
+		DatabaseManager databaseManager = new DatabaseManager(homes, new File("database.dat"));
+		databaseManager.readHomesListIntoDatabase();
+		
 
 		System.out.println("JNM_Mechanical BTU Measurement System.");
 		System.out.println("Version 1.0.0\n");
@@ -41,6 +49,7 @@ public class JNM {
 			switch (choice) {
 			case 'q':
 			case 'Q':
+				databaseManager.writeHomesIntoDatabase();
 				not_done = false;
 				break;
 			case 'c':
@@ -93,21 +102,6 @@ public class JNM {
 	 */
 	private static void addHome(ArrayList<Home> homes, Scanner in) {
 		homes.add(createNewHome(in));
-	}
-
-	/*
-	 * Loads the database to the file
-	 */
-	private static void loadDatabases(DatabaseManager db) {
-		System.out.println("Loading Databse...");
-		
-	}
-
-	/*
-	 * Writes the database to the file
-	 */
-	static void writeDatabase(ArrayList<Home> homesDatabase) {
-
 	}
 
 	// This just displays the main menu on the main loop
@@ -174,7 +168,6 @@ public class JNM {
 			roomList.add(createNewRoom(in));
 		}
 		Home newHome = new Home(createNewPerson(in), createNewAddress(in), roomList);
-		testToString(newHome);
 		return newHome;
 	}
 
@@ -204,5 +197,25 @@ public class JNM {
 		System.out.println("Person.toString: " + testHome.getPerson().toString());
 		for (int i = 0; i < testHome.getRooms().size(); i++)
 			System.out.println("Room #" + (i + 1) + " " + testHome.getRooms().get(i).toString());
+	}
+	static void writeHomeToDatabase(ArrayList<Home> homeDb){
+		//TODO Finish FIRST
+		File dbFile = new File("datbase.dat");
+		try{
+		FileOutputStream fileOut = new FileOutputStream(dbFile);
+		ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+		//Write Every home to file
+		for (int i = 0 ; i < homeDb.size(); i++){
+			
+		}
+
+		}catch(FileNotFoundException e){
+			System.out.println("Error: File not found.");
+		}catch(IOException e){
+			System.out.println("Error: Object stream error.");
+		}
+	}
+	static void readHomeFromDatase(){
+
 	}
 }
