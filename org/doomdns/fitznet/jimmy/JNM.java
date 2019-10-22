@@ -33,8 +33,8 @@ public class JNM {
 		//Test case file to quickly test
 		File testCaseFile = new File("testCases.txt");
 		//Scanner for human input
-		// Scanner in = new Scanner(System.in);
-		Scanner in = new Scanner(testCaseFile);
+		Scanner in = new Scanner(System.in);
+		//Scanner in = new Scanner(testCaseFile);
 		//Database Manager to load data
 		DatabaseManager databaseManager = new DatabaseManager(homes, new File("database.dat"));
 		databaseManager.readHomesListIntoDatabase();
@@ -214,8 +214,5 @@ public class JNM {
 		}catch(IOException e){
 			System.out.println("Error: Object stream error.");
 		}
-	}
-	static void readHomeFromDatase(){
-
 	}
 }
