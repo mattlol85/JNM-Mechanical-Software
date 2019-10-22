@@ -1,3 +1,2 @@
-*.class
 database.dat
-*.class
+org/doomdns/fitznet/jimmy/*.class
