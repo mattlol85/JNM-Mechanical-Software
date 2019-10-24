@@ -25,9 +25,23 @@ public class DatabaseManager {
         this.homes = homes;
         this.homesDb = homesDatabase;
     }
+    // Setters
 
+    //Getters
+
+    ArrayList<Home> getHomesList(){
+        return homes;
+    }
+
+    File getDbFile(){
+        return homesDb;
+    }
     // Methods
 
+    /**
+     * This method reads in all home objects from a .dat file given
+     * to the DatabaseManager. If the object is null, the loop stops
+     */
     public void readHomesListIntoDatabase() {
         boolean continueReading = true;
         try {
@@ -58,7 +72,9 @@ public class DatabaseManager {
             System.out.println("Error: IO Exception.");
         }
     }
-
+    /**
+     * This method will write all objects to the database.dat file
+     */
     public void writeHomesIntoDatabase() {
         try {
             FileOutputStream fileOut = new FileOutputStream(homesDb);
@@ -76,10 +92,9 @@ public class DatabaseManager {
             System.out.println("Error: IO Exception.");
         }
     }
-    // Return number of homes, Honestly i could just use
-    // something like DatabaseManager.getHomes.size() but not
-    // sure which is better
-    public int getNumberOfHomes() {
-        return homes.size();
+
+    public void printDatabaseToConsole(){
+        System.out.println("\t\tJNM DATABASE");
+        //TODO Finish method
     }
 }
