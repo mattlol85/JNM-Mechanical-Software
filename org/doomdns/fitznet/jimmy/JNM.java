@@ -3,11 +3,8 @@ package org.doomdns.fitznet.jimmy;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileInputStream;
-import java.io.ObjectOutputStream;
-import java.io.ObjectInputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 /*
@@ -19,11 +16,10 @@ TODO Prepare for merge to master branch
 TODO Obtain basic running state of program
 TODO Idiot proof the inputs, make sure everything thats written cant be broken
 TODO Create and run Idiot-Proofing Test
-
-
-
+TODO find better way to evaluate BTU usage
 
 */
+
 public class JNM {
 	public static void main(String[] args) throws Exception {
 		char choice;
@@ -33,8 +29,8 @@ public class JNM {
 		//Test case file to quickly test
 		File testCaseFile = new File("testCases.txt");
 		//Scanner for human input
-		Scanner in = new Scanner(System.in);
-		//Scanner in = new Scanner(testCaseFile);
+		//Scanner in = new Scanner(System.in);
+		Scanner in = new Scanner(testCaseFile);
 		//Database Manager to load data
 		DatabaseManager databaseManager = new DatabaseManager(homes, new File("database.dat"));
 		databaseManager.readHomesListIntoDatabase();
@@ -84,16 +80,8 @@ public class JNM {
 	 * cool the room
 	 */
 	private static void quickCalc(Scanner in) {
-
-		System.out.println("Enter Length.");
-		double length = Double.parseDouble(in.nextLine());
-
-		System.out.println("Enter Width.");
-		double width = Double.parseDouble(in.nextLine());
-
-		Room room = new Room(length, width);
-		System.out.println(room.getSqFoot() + " Sq.Ft");
-		System.out.println(calculateBtu(room.getSqFoot()) + " BTU Required.");
+	Room tempRoom = createNewRoom(in);
+	System.out.println(tempRoom.calculateBtu());
 	}
 
 	/*
@@ -122,11 +110,12 @@ public class JNM {
 	}
 
 	// Crude Estimate of BTU Calculation
-	// TODO find better way to evaluate BTU usage
 	static double calculateBtu(double sqFoot) {
 		return sqFoot * 20;
 	}
 
+
+	
 	static Person createNewPerson(Scanner in) {
 		System.out.println("Enter Client First Name.");
 		String firstName = in.next();
@@ -155,23 +144,7 @@ public class JNM {
 		return newRoom;
 	}
 
-	// This method creates a new Home object with prompts.
-	static Home createNewHome(Scanner in) {
-
-		System.out.println("How many rooms need to be cooled?");
-		int numRooms = in.nextInt();
-		// Create empty array of rooms
-		ArrayList<Room> roomList = new ArrayList<>();
-
-		for (int i = 0; i < numRooms; i++) {
-			System.out.println("ROOM #" + (i + 1));
-			roomList.add(createNewRoom(in));
-		}
-		Home newHome = new Home(createNewPerson(in), createNewAddress(in), roomList);
-		return newHome;
-	}
-
-	// Creates new address object, with prompts
+		// Creates new address object, with prompts
 	static Address createNewAddress(Scanner in) {
 
 		System.out.println("Enter Street Name & Number.");
@@ -189,6 +162,22 @@ public class JNM {
 		Address newAddress = new Address(streetAddress, city, state, zip);
 		return newAddress;
 	}
+	// This method creates a new Home object with prompts.
+	static Home createNewHome(Scanner in) {
+
+		System.out.println("How many rooms need to be cooled?");
+		int numRooms = in.nextInt();
+		// Create empty array of rooms
+		ArrayList<Room> roomList = new ArrayList<>();
+
+		for (int i = 0; i < numRooms; i++) {
+			System.out.println("ROOM #" + (i + 1));
+			roomList.add(createNewRoom(in));
+		}
+		Home newHome = new Home(createNewPerson(in), createNewAddress(in), roomList);
+		return newHome;
+	}
+
 
 	// Testing method to verify toString is working properly
 	static void testToString(Home testHome) {
@@ -208,7 +197,7 @@ public class JNM {
 		for (int i = 0 ; i < homeDb.size(); i++){
 			
 		}
-
+		objectOut.close();
 		}catch(FileNotFoundException e){
 			System.out.println("Error: File not found.");
 		}catch(IOException e){

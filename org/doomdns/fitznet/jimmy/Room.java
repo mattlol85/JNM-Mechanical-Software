@@ -48,7 +48,10 @@ public class Room implements Serializable{
 	// double getHeight() {return this.height;}
 
 	// Methods
-
+	public double calculateBtu(){
+		//Crude estimation for BTU required to cool room
+		return (length*width)*20;
+	}
 	/*
 	 * @PARAM legnth - Length of the room being measured
 	 * 
