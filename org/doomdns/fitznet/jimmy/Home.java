@@ -70,7 +70,6 @@ public class Home implements Serializable{
 	// Methods
 	@Override
 	public String toString() {
-		//TODO fix this, its all wrong bossman...
 		return person.toString() + address.toString();
 	}
 }

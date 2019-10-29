@@ -21,7 +21,7 @@ public class JNM {
 		// Main home local database storage
 		ArrayList<Home> homes = new ArrayList<>();
 		// Test case file to quickly test
-		File testCaseFile = new File("testCases.txt");
+		//File testCaseFile = new File("testCases.txt");
 		// Scanner for human input
 		Scanner in = new Scanner(System.in);
 		// Scanner in = new Scanner(testCaseFile);
