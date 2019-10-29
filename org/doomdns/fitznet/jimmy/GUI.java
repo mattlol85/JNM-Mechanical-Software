@@ -65,11 +65,13 @@ public class GUI {
 		/*
 		 * Temporary place holders for Data display
 		 */
+		String[] colNames = {"Name","Address"};
+		String[][] testingData = {{"Matthew Fitzgerald", "2013 TestAddress"},{"John TestGuy", "123123 JohnLane"}};
 		
-		table = new JTable();
+		table = new JTable(testingData,colNames);
 		table.setColumnSelectionAllowed(true);
 		table.setCellSelectionEnabled(true);
-		table.setBounds(510, 32, 374, 476);
+		table.setBounds(510, 53, 374, 455);
 		frmJnmMechanicalWebtool.getContentPane().add(table);
 		
 		JLabel lblAddNewHome = new JLabel("Quick Actions");
