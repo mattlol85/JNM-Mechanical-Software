@@ -29,7 +29,7 @@ public class JNM {
 		DatabaseManager databaseManager = new DatabaseManager(homes, new File("database.dat"));
 		databaseManager.readHomesListIntoDatabase();
 		
-		GUI gui = new GUI();
+	//	GUI gui = new GUI();
 
 		System.out.println("JNM_Mechanical BTU Measurement System.");
 		System.out.println("Version 1.0.0\n");
